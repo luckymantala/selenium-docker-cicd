@@ -51,3 +51,4 @@
 .classpath
 .settings
 /bin/
+.vscode
