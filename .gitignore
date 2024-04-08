@@ -47,6 +47,6 @@
 **/mvnw.cmd
 **/node_modules/
 
-**/.project
-**/.classpath
-**/.settings
+.project
+.classpath
+.settings
