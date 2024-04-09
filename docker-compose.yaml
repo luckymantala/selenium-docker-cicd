@@ -26,3 +26,27 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
       - SE_NODE_MAX_SESSIONS=4
+  vendor-portal:
+    image: jacky/selenium:latest
+    shm_size: '2g'   
+    depends_on:
+      - chrome
+    environment:
+      - HUB_HOST=hub
+      - BROWSER=chrome
+      - THREAD_COUNT=2
+      - TEST_SUITE=vendor-portal.xml
+    volumes:
+      - C:\Users\ATUser001\git\selenium-docker-cicd\output\vendor-portal:/home/selenium-docker-cicd/test-output
+  flight-reservation:
+    image: jacky/selenium:latest
+    shm_size: '2g'   
+    depends_on:
+      - firefox
+    environment:
+      - HUB_HOST=hub
+      - BROWSER=firefox
+      - THREAD_COUNT=2
+      - TEST_SUITE=flight-reservation.xml
+    volumes:
+      - C:\Users\ATUser001\git\selenium-docker-cicd\output\flight-reservation:/home/selenium-docker-cicd/test-output
