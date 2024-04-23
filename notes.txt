@@ -1,0 +1,67 @@
+
+JDK Container to run java script
+==================================================
+bellsoft/liberica-openjdk-alpine:17.0.8
+
+# Running Tests
+
+### TestNG parameters
+
+- Running a test suite
+
+`java -cp 'libs/*' org.testng.TestNG test-suites/flight-reservation.xml`
+
+- Running a test suite with specific thread count
+
+`java -cp 'libs/*' org.testng.TestNG -threadcount 2 test-suites/flight-reservation.xml`
+
+- TestNG by default creates **test-output** directory. You can change it with **-d** option.
+
+`java -cp 'libs/*' org.testng.TestNG -threadcount 2 -d result test-suites/flight-reservation.xml`
+
+---
+
+### System Properties
+
+- To pass the browser option
+
+`java -Dbrowser=chrome -cp 'libs/*' org.testng.TestNG test-suites/flight-reservation.xml`
+
+- To run the tests using Selenium Grid
+
+`java -Dselenium.grid.enabled=true -Dselenium.grid.hubHost=localhost -cp 'libs/*' org.testng.TestNG test-suites/flight-reservation.xml`
+
+- To run the tests using Selenium Grid with specific thread count
+
+`java -Dselenium.grid.enabled=true -Dselenium.grid.hubHost=localhost -cp 'libs/*' org.testng.TestNG test-suites/flight-reservation.xml -threadcount 2`
+
+Docker Commands
+==================================================
+docker images
+
+docker system prune
+
+docker build -t=jacky/selenium .
+
+docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+docker run -e BROWSER=firefox -e HUB_HOST=192.168.1.184 -e TEST_SUITE=flight-reservation.xml -e THREAD_COUNT=4 -v C:\Users\ATUser001\git\selenium-docker-cicd\result:/home/selenium-docker-cicd/test-output jacky/selenium
+
+docker run -it --entrypoint=/bin/sh jacky/selenium
+
+
+
+Docker Compose Commands
+=====================================================
+
+
+using different file name 				-f 
+for creating containers a per our need 	-scale 
+runs in background mode 				-d 
+- docker-compose -f grid.yaml up --scale chrome=2 -d
+
+will automatically destroy chrome contrainers from previous command and creates new firefox containers
+- docker-compose -f grid.yaml up --scale firefox=2 -d
+
+BROWSER is env variable
+BROWSER=chrome docker-compose up

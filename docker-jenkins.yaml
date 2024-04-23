@@ -1,0 +1,10 @@
+version: "3"
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    user: root
+    ports:
+    - 8080:8080
+    - 50000:50000
+    volumes:
+      - C:\Users\ATUser001\git\selenium-docker-cicd\volumes\master:/var/jenkins_home
