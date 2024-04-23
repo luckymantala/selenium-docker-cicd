@@ -23,8 +23,8 @@ pipeline{
             steps{
                 bat 'echo | set /p="%DOCKER_HUB_PSW%" | docker login -u %DOCKER_HUB_USR% --password-stdin'
                 bat "docker push luckymantala/selenium:latest"
-                bat "docker tag luckymantala/selenium:latest luckymantala/selenium:${env.BUILD_NUMBER}"
-                bat "docker push luckymantala/selenium:${env.BUILD_NUMBER}"
+                // bat "docker tag luckymantala/selenium:latest luckymantala/selenium:${env.BUILD_NUMBER}"
+                // bat "docker push luckymantala/selenium:${env.BUILD_NUMBER}"
             }
         }
         

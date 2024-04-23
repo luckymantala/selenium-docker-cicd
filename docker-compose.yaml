@@ -1,7 +1,7 @@
 version: "3"
 services:
   vendor-portal:
-    image: jacky/selenium:latest  
+    image: luckymantala/selenium:latest  
     environment:
       - HUB_HOST=hub
       - BROWSER=${BROWSER}
@@ -10,7 +10,7 @@ services:
     volumes:
       - C:\Users\ATUser001\git\selenium-docker-cicd\output\vendor-portal:/home/selenium-docker-cicd/test-output
   flight-reservation:
-    image: jacky/selenium:latest
+    image: luckymantala/selenium:latest
     environment:
       - HUB_HOST=hub
       - BROWSER=${BROWSER}
