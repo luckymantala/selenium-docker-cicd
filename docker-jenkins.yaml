@@ -7,4 +7,6 @@ services:
     - 8080:8080
     - 50000:50000
     volumes:
-      - C:\Users\ATUser001\git\selenium-docker-cicd\volumes\master:/var/jenkins_home
+    - C:\Users\ATUser001\git\selenium-docker-cicd\volumes\master:/var/jenkins_home
+    environment:
+    - JAVA_OPTS="-Dhudson.model.DirectoryBrowserSupport.CSP="  
