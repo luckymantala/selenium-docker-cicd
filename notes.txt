@@ -41,7 +41,7 @@ docker images
 
 docker system prune
 
-docker build -t=jacky/selenium .
+docker build -t=luckymantala/selenium .
 
 docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
@@ -49,7 +49,7 @@ docker run -e BROWSER=firefox -e HUB_HOST=192.168.1.184 -e TEST_SUITE=flight-res
 
 docker run -it --entrypoint=/bin/sh jacky/selenium
 
-
+docker push luckymantala/selenium
 
 Docker Compose Commands
 =====================================================
@@ -65,3 +65,6 @@ will automatically destroy chrome contrainers from previous command and creates 
 
 BROWSER is env variable
 BROWSER=chrome docker-compose up
+
+
+docker-compose -f test-suites.yaml up --pull=always
